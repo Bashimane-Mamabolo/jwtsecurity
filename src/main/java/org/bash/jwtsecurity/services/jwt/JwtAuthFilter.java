@@ -7,6 +7,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
 
 import org.springframework.lang.NonNull;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 
@@ -16,6 +17,8 @@ import java.io.IOException;
 @Component
 @RequiredArgsConstructor
 public class JwtAuthFilter extends OncePerRequestFilter {
+
+    private final JwtUtils jwtUtilities;
     // We can intercept our request and response
     // Filter-chain design pattern. Is a chain of responsibilities
     // Calls the next filter within the chain
@@ -36,6 +39,11 @@ public class JwtAuthFilter extends OncePerRequestFilter {
         // Extract token from the header
         jwtToken = authHeader.substring(7);
         // Extract userEmail from JWT token
+        userEmail = jwtUtilities.getUsernameFromJwt(jwtToken);
+        if (userEmail != null && SecurityContextHolder.getContext().getAuthentication() == null) {
+
+
+        }
 
 
     }

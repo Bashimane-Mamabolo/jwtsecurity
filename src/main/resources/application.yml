@@ -15,5 +15,5 @@ spring:
     database: postgresql
     database-platform: org.hibernate.dialect.PostgreSQLDialect
 
-
+jwt-secret: 9841425f9552688c1fb12ea31b0b202a48d8fdaf23e6cb3f413c2e65fe700e83
 

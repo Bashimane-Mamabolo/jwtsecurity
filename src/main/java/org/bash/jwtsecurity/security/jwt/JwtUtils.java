@@ -1,4 +1,4 @@
-package org.bash.jwtsecurity.services.jwt;
+package org.bash.jwtsecurity.security.jwt;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
